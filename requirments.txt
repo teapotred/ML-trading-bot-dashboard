@@ -1,7 +1,19 @@
+# Streamlit & core visualization
 streamlit
-pandas
 plotly
 matplotlib
+
+# Data handling
+pandas
+numpy
+
+# Trading & API
+alpaca-trade-api
 yfinance
+
+# Machine Learning
 xgboost
 scikit-learn
+
+# Utility
+python-dateutil
