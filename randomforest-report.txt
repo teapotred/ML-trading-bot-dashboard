@@ -1,0 +1,12 @@
+Ticker: DNN
+<function classification_report at 0x759ccb4cc7c0>Ticker: CMG
+<function classification_report at 0x759ccb4cc7c0>Ticker: QS
+<function classification_report at 0x759ccb4cc7c0>Ticker: NIO
+<function classification_report at 0x759ccb4cc7c0>Ticker: VALE
+<function classification_report at 0x759ccb4cc7c0>Ticker: AEO
+<function classification_report at 0x759ccb4cc7c0>Ticker: TEMP
+<function classification_report at 0x759ccb4cc7c0>Ticker: SBUX
+<function classification_report at 0x759ccb4cc7c0>Ticker: JNJ
+<function classification_report at 0x759ccb4cc7c0>Ticker: WU
+<function classification_report at 0x759ccb4cc7c0>Ticker: GAP
+<function classification_report at 0x759ccb4cc7c0>

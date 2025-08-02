@@ -1,0 +1,437 @@
+Ticker: LCID
+              precision    recall  f1-score   support
+
+           0       0.58      0.64      0.61       129
+           1       0.32      0.27      0.29        83
+
+    accuracy                           0.50       212
+   macro avg       0.45      0.45      0.45       212
+weighted avg       0.48      0.50      0.48       212
+
+Ticker: TSLA
+              precision    recall  f1-score   support
+
+           0       0.59      0.65      0.62       413
+           1       0.47      0.41      0.44       314
+
+    accuracy                           0.55       727
+   macro avg       0.53      0.53      0.53       727
+weighted avg       0.54      0.55      0.54       727
+
+Ticker: RIOT
+              precision    recall  f1-score   support
+
+           0       0.58      0.87      0.69       253
+           1       0.41      0.12      0.18       184
+
+    accuracy                           0.56       437
+   macro avg       0.49      0.50      0.44       437
+weighted avg       0.51      0.56      0.48       437
+
+Ticker: INTC
+              precision    recall  f1-score   support
+
+           0       0.65      0.59      0.62       469
+           1       0.41      0.47      0.44       282
+
+    accuracy                           0.55       751
+   macro avg       0.53      0.53      0.53       751
+weighted avg       0.56      0.55      0.55       751
+
+Ticker: SOFI
+              precision    recall  f1-score   support
+
+           0       0.51      0.74      0.60        97
+           1       0.55      0.30      0.39       100
+
+    accuracy                           0.52       197
+   macro avg       0.53      0.52      0.49       197
+weighted avg       0.53      0.52      0.49       197
+
+Ticker: MARA
+              precision    recall  f1-score   support
+
+           0       0.54      0.45      0.49       347
+           1       0.39      0.48      0.43       253
+
+    accuracy                           0.46       600
+   macro avg       0.47      0.47      0.46       600
+weighted avg       0.48      0.46      0.47       600
+
+Ticker: WBD
+              precision    recall  f1-score   support
+
+           0       0.62      0.17      0.26       442
+           1       0.42      0.86      0.56       309
+
+    accuracy                           0.45       751
+   macro avg       0.52      0.51      0.41       751
+weighted avg       0.54      0.45      0.38       751
+
+Ticker: WMT
+              precision    recall  f1-score   support
+
+           0       0.66      0.91      0.77       487
+           1       0.46      0.14      0.21       264
+
+    accuracy                           0.64       751
+   macro avg       0.56      0.52      0.49       751
+weighted avg       0.59      0.64      0.57       751
+
+Ticker: IBM
+              precision    recall  f1-score   support
+
+           0       0.63      0.95      0.76       473
+           1       0.45      0.08      0.13       278
+
+    accuracy                           0.62       751
+   macro avg       0.54      0.51      0.44       751
+weighted avg       0.57      0.62      0.53       751
+
+Ticker: AMD
+              precision    recall  f1-score   support
+
+           0       0.56      0.42      0.48       430
+           1       0.42      0.56      0.48       321
+
+    accuracy                           0.48       751
+   macro avg       0.49      0.49      0.48       751
+weighted avg       0.50      0.48      0.48       751
+
+Ticker: RBLX
+              precision    recall  f1-score   support
+
+           0       0.55      0.69      0.61        93
+           1       0.59      0.44      0.51        95
+
+    accuracy                           0.56       188
+   macro avg       0.57      0.57      0.56       188
+weighted avg       0.57      0.56      0.56       188
+
+Ticker: NEE
+              precision    recall  f1-score   support
+
+           0       0.63      0.57      0.60       479
+           1       0.35      0.41      0.38       272
+
+    accuracy                           0.51       751
+   macro avg       0.49      0.49      0.49       751
+weighted avg       0.53      0.51      0.52       751
+
+############################################################################################################################################################
+jrov/Documents/alpcada-trading via 🐍 v3.8.10 took 2s 
+❯ python alpaca-learning-xgboost.py
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for LCID:
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.88      0.91       652
+           1       0.82      0.91      0.86       406
+
+    accuracy                           0.89      1058
+   macro avg       0.88      0.89      0.88      1058
+weighted avg       0.89      0.89      0.89      1058
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for TSLA:
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.97      0.96      1978
+           1       0.96      0.95      0.95      1654
+
+    accuracy                           0.96      3632
+   macro avg       0.96      0.96      0.96      3632
+weighted avg       0.96      0.96      0.96      3632
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for RIOT:
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.96      0.97      1257
+           1       0.94      0.97      0.96       924
+
+    accuracy                           0.96      2181
+   macro avg       0.96      0.96      0.96      2181
+weighted avg       0.96      0.96      0.96      2181
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for INTC:
+
+              precision    recall  f1-score   support
+
+           0       0.84      0.65      0.73      2354
+           1       0.57      0.79      0.66      1400
+
+    accuracy                           0.70      3754
+   macro avg       0.71      0.72      0.70      3754
+weighted avg       0.74      0.70      0.71      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for SOFI:
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.96      0.97       558
+           1       0.95      0.97      0.96       427
+
+    accuracy                           0.97       985
+   macro avg       0.96      0.97      0.96       985
+weighted avg       0.97      0.97      0.97       985
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for MARA:
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.97      0.98      1821
+           1       0.95      0.97      0.96      1177
+
+    accuracy                           0.97      2998
+   macro avg       0.97      0.97      0.97      2998
+weighted avg       0.97      0.97      0.97      2998
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for WBD:
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.91      0.93      2317
+           1       0.86      0.91      0.89      1437
+
+    accuracy                           0.91      3754
+   macro avg       0.90      0.91      0.91      3754
+weighted avg       0.91      0.91      0.91      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for WMT:
+
+              precision    recall  f1-score   support
+
+           0       0.89      0.76      0.82      2661
+           1       0.57      0.77      0.65      1093
+
+    accuracy                           0.76      3754
+   macro avg       0.73      0.76      0.74      3754
+weighted avg       0.80      0.76      0.77      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for IBM:
+
+              precision    recall  f1-score   support
+
+           0       0.88      0.75      0.81      2562
+           1       0.59      0.78      0.67      1192
+
+    accuracy                           0.76      3754
+   macro avg       0.74      0.76      0.74      3754
+weighted avg       0.79      0.76      0.77      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for AMD:
+
+              precision    recall  f1-score   support
+
+           0       0.93      0.88      0.91      2134
+           1       0.86      0.92      0.89      1619
+
+    accuracy                           0.90      3753
+   macro avg       0.89      0.90      0.90      3753
+weighted avg       0.90      0.90      0.90      3753
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for RBLX:
+
+              precision    recall  f1-score   support
+
+           0       0.85      0.81      0.83       512
+           1       0.79      0.82      0.81       428
+
+    accuracy                           0.82       940
+   macro avg       0.82      0.82      0.82       940
+weighted avg       0.82      0.82      0.82       940
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for NEE:
+
+              precision    recall  f1-score   support
+
+           0       0.83      0.73      0.78      2486
+           1       0.57      0.72      0.64      1268
+
+    accuracy                           0.72      3754
+   macro avg       0.70      0.72      0.71      3754
+weighted avg       0.75      0.72      0.73      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for META:
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.97      0.98      1852
+           1       0.96      0.98      0.97      1303
+
+    accuracy                           0.98      3155
+   macro avg       0.97      0.98      0.97      3155
+weighted avg       0.98      0.98      0.98      3155
+
+AAPL, was not found, skipping.
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for SPY:
+
+              precision    recall  f1-score   support
+
+           0       0.92      0.79      0.85      2708
+           1       0.61      0.83      0.70      1046
+
+    accuracy                           0.80      3754
+   macro avg       0.76      0.81      0.78      3754
+weighted avg       0.84      0.80      0.81      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for NVDA:
+
+              precision    recall  f1-score   support
+
+           0       0.71      0.41      0.52      2066
+           1       0.52      0.80      0.63      1688
+
+    accuracy                           0.58      3754
+   macro avg       0.62      0.60      0.58      3754
+weighted avg       0.63      0.58      0.57      3754
+
+##########################################################################################################################################################
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for DNN:
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.97      0.97      2293
+           1       0.95      0.97      0.96      1461
+
+    accuracy                           0.97      3754
+   macro avg       0.96      0.97      0.96      3754
+weighted avg       0.97      0.97      0.97      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for CMG:
+
+              precision    recall  f1-score   support
+
+           0       0.85      0.83      0.84      2277
+           1       0.75      0.77      0.76      1477
+
+    accuracy                           0.81      3754
+   macro avg       0.80      0.80      0.80      3754
+weighted avg       0.81      0.81      0.81      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for QS:
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.96      0.97       651
+           1       0.94      0.96      0.95       430
+
+    accuracy                           0.96      1081
+   macro avg       0.96      0.96      0.96      1081
+weighted avg       0.96      0.96      0.96      1081
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for NIO:
+
+              precision    recall  f1-score   support
+
+           0       0.91      0.92      0.92       912
+           1       0.89      0.88      0.88       654
+
+    accuracy                           0.90      1566
+   macro avg       0.90      0.90      0.90      1566
+weighted avg       0.90      0.90      0.90      1566
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for VALE:
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.97      0.98      2287
+           1       0.95      0.98      0.97      1467
+
+    accuracy                           0.97      3754
+   macro avg       0.97      0.97      0.97      3754
+weighted avg       0.97      0.97      0.97      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for AEO:
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.92      0.93      2224
+           1       0.88      0.92      0.90      1530
+
+    accuracy                           0.92      3754
+   macro avg       0.91      0.92      0.91      3754
+weighted avg       0.92      0.92      0.92      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for TEMP:
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.99      0.99       490
+           1       0.97      0.99      0.98       226
+
+    accuracy                           0.99       716
+   macro avg       0.98      0.99      0.99       716
+weighted avg       0.99      0.99      0.99       716
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for SBUX:
+
+              precision    recall  f1-score   support
+
+           0       0.89      0.79      0.84      2436
+           1       0.68      0.82      0.74      1318
+
+    accuracy                           0.80      3754
+   macro avg       0.79      0.81      0.79      3754
+weighted avg       0.82      0.80      0.81      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for JNJ:
+
+              precision    recall  f1-score   support
+
+           0       0.93      0.80      0.86      2736
+           1       0.61      0.83      0.70      1018
+
+    accuracy                           0.81      3754
+   macro avg       0.77      0.82      0.78      3754
+weighted avg       0.84      0.81      0.82      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for WU:
+
+              precision    recall  f1-score   support
+
+           0       0.84      0.73      0.78      2449
+           1       0.59      0.74      0.66      1305
+
+    accuracy                           0.73      3754
+   macro avg       0.72      0.73      0.72      3754
+weighted avg       0.75      0.73      0.74      3754
+
+Fitting 5 folds for each of 32 candidates, totalling 160 fits
+Classification report for GAP:
+
+              precision    recall  f1-score   support
+
+           0       0.87      0.80      0.84      2270
+           1       0.73      0.82      0.77      1484
+
+    accuracy                           0.81      3754
+   macro avg       0.80      0.81      0.80      3754
+weighted avg       0.82      0.81      0.81      3754

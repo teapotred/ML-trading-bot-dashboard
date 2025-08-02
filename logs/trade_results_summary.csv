@@ -1,0 +1,7 @@
+Date,Symbol,Qty,Entry Price,Filled Price,Status,Profit/Loss ($),Return (%)
+2025-07-30 06:13:48,LCID,1.0,3.15,2.55,OrderStatus.FILLED,,
+2025-07-30 06:13:48,RIOT,1.0,10.5,13.9,OrderStatus.FILLED,,
+2025-07-30 06:13:49,SOFI,1.0,15.63,20.85,OrderStatus.FILLED,,
+2025-07-30 06:13:50,SPY,1.0,584.73,,OrderStatus.NEW,,
+2025-07-30 06:13:51,TSLA,1.0,417.41,,OrderStatus.NEW,,
+2025-07-30 06:13:51,RIVN,1.0,13.58,13.07,OrderStatus.FILLED,,
