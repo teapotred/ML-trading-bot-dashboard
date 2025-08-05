@@ -1,4 +1,4 @@
-symbol,qty,side,price,transaction_time
+symbol,qty,side,price,Date
 RIVN,1,sell,12.54,2025-08-04T13:31:23.171747Z
 RIOT,1,buy,11.24,2025-08-04T13:31:20.918384Z
 SOFI,1,buy,21.33,2025-08-04T13:31:09.318593Z

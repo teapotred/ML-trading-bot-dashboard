@@ -27,7 +27,7 @@ df = pd.DataFrame(data)
 if df.empty:
     print("📭 No fill activities today.")
 else:
-    df = df[["symbol", "qty", "side", "price", "transaction_time"]]
+    df = df[["symbol", "qty", "side", "price", "Date"]]
     print("📈 Today's Filled Trades:")
     print(df)
     df.to_csv("important-files/todays_fills.csv", index=False)
