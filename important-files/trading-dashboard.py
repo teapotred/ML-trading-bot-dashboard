@@ -9,7 +9,7 @@ import plotly.express as px
 path = "important-files/trade_results_summary.csv"
 df = pd.read_csv(path)
 profits = df["Profit/Loss"].dropna().tolist()
-path_v1 = "important-files/todays_fill.csv"
+path_v1 = "important-files/todays_fills.csv"
 df1= pd.read_csv(path_v1)
 
 
