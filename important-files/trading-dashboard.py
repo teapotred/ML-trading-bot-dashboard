@@ -9,6 +9,9 @@ import plotly.express as px
 path = "important-files/trade_results_summary.csv"
 df = pd.read_csv(path)
 profits = df["Profit/Loss"].dropna().tolist()
+path_v1 = "important-files/todays_fill.csv"
+df1= pd.read_csv(path_v1)
+
 
 if 'Date' in df.columns:
     df['Date'] = pd.to_datetime(df['Date'])
@@ -35,6 +38,10 @@ daily = df.groupby(df['Date'].dt.date)["Profit/Loss"].sum().cumsum()
 
 st.subheader("📋 Trade Details")
 st.dataframe(df.sort_values(by="Date", ascending=False))
+
+
+st.subheader("📭 Today's filled Trades")
+st.dataframe(df1.sort_values(by="Date", ascending=False))
 
 
 st.subheader("🏆 Top Performing Symbols")
