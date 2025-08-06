@@ -33,6 +33,7 @@ with col3:
     win_rate = round((df['Profit/Loss']>0).mean() * 100,2)
     st.metric("Win Rate: ", f"{win_rate}%")
 
+
 st.subheader("Cumulative Profit over time")
 daily = df.groupby(df['Date'].dt.date)["Profit/Loss"].sum().cumsum()
 
@@ -52,14 +53,33 @@ if not top.empty:
     st.plotly_chart(fig, use_container_width = True)
 else:
     st.info("no filled trade with profit/loss")
+    
+st.subheader("🗓️ Avg Profit by Day of Week")
+df['Day'] = pd.to_datetime(df['Date']).dt.day_name()
+avg_by_day = df.groupby('Day')["Profit/Loss"].mean().reindex(['Monday','Tuesday','Wednesday','Thursday','Friday'])
+fig = px.bar(avg_by_day, title="Average Profit by Weekday", labels={'value': 'Average Profit'}, color=avg_by_day.values)
+st.plotly_chart(fig, use_container_width=True)
+
+st.subheader("Performance Charts")
+
+col1,col2 = st.columns(2)
+
+with col1:
+
+    st.subheader("📈 Equity Curve")
+    equity_curve = df.groupby(df['Date'].dt.date)["Profit/Loss"].sum().cumsum().reset_index()
+    fig = px.line(equity_curve, x='Date', y='Profit/Loss', title='Cumulative Profit/Loss Over Time')
+    fig.update_traces(line_color='#00cc96')
+    st.plotly_chart(fig, use_container_width=True)
 
 
-st.subheader("📊 Profit Distribution")
-if profits:
-    fig = ff.create_distplot([profits], group_labels = ["Profit/Loss"], bin_size = 1)
-    st.plotly_chart(fig, use_container_width = True)
-else:
-    st.info("no filled trade with profit/loss")
+with col2:
+    st.subheader("📊 Profit Distribution")
+    if profits:
+        fig = ff.create_distplot([profits], group_labels = ["Profit/Loss"], bin_size = 1)
+        st.plotly_chart(fig, use_container_width = True)
+    else:
+        st.info("no filled trade with profit/loss")
 
 
 
