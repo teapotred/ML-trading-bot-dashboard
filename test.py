@@ -3,15 +3,16 @@ from alpaca.trading.requests import MarketOrderRequest, LimitOrderRequest
 from alpaca.trading.requests import OrderSide, TimeInForce
 
 
-api_key = "PK6EBSHGW3JJTUUH9898"
-secret_key = "WAWaJVPMCJ7Yx7dFeGpQUzR5UIvxhY8oYik6xsih"
-tradingClient = TradingClient(api_key, secret_key, paper=True)
+API_KEY= "PK0WNH4PZXTQ2KHRN089"
+API_SECRET ="mziJNe7Rgb9qKWVlUgTQI9yv5CAXniCqlrlZbqvg"
+
+tradingClient = TradingClient(API_KEY, API_SECRET, paper=True)
 
 positions = tradingClient.get_open_position('SPY')
 print(positions)
 
 
-#TICKERS = ["LCID", "TSLA", "RIOT", "SOFI", "AAPL", "GOOG", "TEMP", "XYZ",'LCID','TSLA','RIOT','INTC','SOFI','MARA','WBD','WMT','IBM','AMD','RBLX','NEE','META','AAPL','SPY','NVDA']
+TICKERS = ['MARA']
 #assets = tradingClient.get_all_assets()
 
 #for asset in assets:

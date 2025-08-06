@@ -10,12 +10,18 @@ from alpaca.trading.enums import OrderSide, TimeInForce
 from trade_logger import log_trade
 
 # === CONFIG ===
-API_KEY = "PK6EBSHGW3JJTUUH9898"
-API_SECRET = "WAWaJVPMCJ7Yx7dFeGpQUzR5UIvxhY8oYik6xsih"
+
+#old acc creds
+#API_KEY = "PK6EBSHGW3JJTUUH9898"
+#API_SECRET = "WAWaJVPMCJ7Yx7dFeGpQUzR5UIvxhY8oYik6xsih"
+
+#curr acc creds
+API_KEY= "PK0WNH4PZXTQ2KHRN089"
+API_SECRET ="mziJNe7Rgb9qKWVlUgTQI9yv5CAXniCqlrlZbqvg"
 USE_PAPER = True
 DATA_DIR = "ticker-yearly"
 MODEL_DIR = "xgb_models"
-TICKERS = ['LCID', 'RIOT', 'SOFI', 'SPY', 'TSLA', "RIVN", "CHPT"]
+TICKERS = ['SOFI','RIOT','CHPT','LCID','RIVN','MARA']
 STOP_LOSS_PCT = 0.02
 TAKE_PROFIT_PCT = 0.04
 ORDER_QTY = 1

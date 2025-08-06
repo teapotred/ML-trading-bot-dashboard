@@ -3,13 +3,13 @@ import pandas as pd
 from datetime import datetime
 
 # CONFIG
-API_KEY = "PK6EBSHGW3JJTUUH9898"
-API_SECRET = "WAWaJVPMCJ7Yx7dFeGpQUzR5UIvxhY8oYik6xsih"
+API_KEY= "PK0WNH4PZXTQ2KHRN089"
+API_SECRET ="mziJNe7Rgb9qKWVlUgTQI9yv5CAXniCqlrlZbqvg"
 BASE_URL = "https://paper-api.alpaca.markets"
 HEADERS = {
     "APCA-API-KEY-ID": API_KEY,
     "APCA-API-SECRET-KEY": API_SECRET
-}
+}   
 
 # Today's date
 today = datetime.now().strftime("%Y-%m-%d")

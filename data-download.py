@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 # === Configuration ===
-tickers = ["BABA", "ROKU", "C", "F", "RIVN", "CHPT"]
+tickers = ["MARA"]
 start_date = "2010-01-01"
 end_date = "2024-12-31"
 output_folder = "ticker-yearly"

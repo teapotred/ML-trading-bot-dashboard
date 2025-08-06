@@ -8,7 +8,7 @@ from xgboost import XGBClassifier, plot_importance
 
 # === CONFIG ===
 DATA_DIR = 'ticker-yearly'
-TICKERS = ["RIOT","TSLA","SPY","LCID","SOFI",]  # Change this manually as needed
+TICKERS = ['SOFI','RIOT','CHPT','LCID','RIVN','MARA']  # Change this manually as needed
 MODEL_DIR = 'xgb_models'
 os.makedirs(MODEL_DIR, exist_ok=True)  # Create folder if it doesn't exist
 
@@ -78,21 +78,30 @@ for ticker in TICKERS:
     rolling_std = df['Close'].rolling(window=20).std()
     df['BB_Width'] = (rolling_mean + 2*rolling_std) - (rolling_mean - 2*rolling_std)
 
-    # Target label: price goes up >1% in 3 days
-    # Another Target label I'll try is to check if it goes up in the next 5 days
-    #future_return = (df['Close'].shift(-5) + df['Close'].shift(-6) + df['Close'].shift(-7)) / 3 / df['Close'] - 1
-    future_return = (df['Close'].shift(-5) / df['Close'] - 1)
-    df['Target'] = (future_return>0.001).astype(int)
+    # === New Features ===
+    df['ExpVolatility'] = df['Close'].ewm(span=10).std()
+    df['ROC'] = df['Close'].pct_change(periods=5)
+    low_min = df['Low'].rolling(window=14).min()
+    high_max = df['High'].rolling(window=14).max()
+    df['%K'] = 100 * ((df['Close'] - low_min) / (high_max - low_min))
+    df['%D'] = df['%K'].rolling(window=3).mean()
+    df['Body'] = abs(df['Close'] - df['Open'])
+    df['UpperWick'] = df['High'] - df[['Close', 'Open']].max(axis=1)
+    df['LowerWick'] = df[['Close', 'Open']].min(axis=1) - df['Low']
+    df['RVOL'] = df['Volume'] / df['Volume'].rolling(window=20).mean()
+    df['Trend'] = df['Close'].diff().rolling(window=5).sum()
 
-
-    #df['Target'] = (df['Close'].shift(-7) / df['Close'] - 1) > 0.01
-    #df['Target'] = df['Target'].astype(int)
+    # Target label: price goes up >1% in 7 days
+    future_return = (df['Close'].shift(-7) / df['Close'] - 1)
+    df['Target'] = (future_return > 0.001).astype(int)
 
     df.dropna(inplace=True)
 
     features = ['SMA20', 'EMA20', 'RSI', 'MACD', 'ATR', 'OBV',
                 'rolling_std', 'rolling_mean', 'Close/Open', 'High/Low',
-                'Momentum', 'Volatility', 'VolumeChange', 'BB_Width'] + \
+                'Momentum', 'Volatility', 'VolumeChange', 'BB_Width',
+                'ExpVolatility', 'ROC', '%K', '%D', 'Body',
+                'UpperWick', 'LowerWick', 'RVOL', 'Trend'] + \
                [f'return_lag_{i}' for i in range(1, 6)]
 
     X = df[features].replace([float('inf'), -float('inf')], np.nan).dropna().astype('float32')
@@ -105,16 +114,16 @@ for ticker in TICKERS:
     pos_weight = (y == 0).sum() / (y == 1).sum()
 
     xgb = XGBClassifier(
-    max_depth=3,             # limit how deep trees go (less complex)
-    learning_rate=0.05,      # slower learning
-    subsample=0.8,           # don't use all rows for each tree
-    colsample_bytree=0.8,    # don't use all features
-    reg_alpha=0.5,           # L1 regularization (lasso)
-    reg_lambda=1.0,          # L2 regularization (ridge)
-    n_estimators=100,
-    scale_pos_weight=pos_weight,
-    eval_metric='logloss',
-    random_state=42
+        max_depth=3,
+        learning_rate=0.05,
+        subsample=0.8,
+        colsample_bytree=0.8,
+        reg_alpha=0.5,
+        reg_lambda=1.0,
+        n_estimators=100,
+        scale_pos_weight=pos_weight,
+        eval_metric='logloss',
+        random_state=42
     )
 
     param_grid = {
@@ -135,10 +144,7 @@ for ticker in TICKERS:
     print(classification_report(y_test, y_pred))
     print(f"{ticker} | Ups: {(df['Target'] == 1).sum()} | Downs: {(df['Target'] == 0).sum()}")
 
-
     # === Save the model ===
     model_path = os.path.join(MODEL_DIR, f"{ticker}_model_v1.json")
     best_model.save_model(model_path)
     print(f"✅ Model saved to {model_path}")
-
-

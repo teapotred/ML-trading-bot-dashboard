@@ -2,8 +2,8 @@ import pandas as pd
 from alpaca.trading.client import TradingClient
 
 # CONFIG
-API_KEY = "PK6EBSHGW3JJTUUH9898"
-API_SECRET = "WAWaJVPMCJ7Yx7dFeGpQUzR5UIvxhY8oYik6xsih"
+API_KEY= "PK0WNH4PZXTQ2KHRN089"
+API_SECRET ="mziJNe7Rgb9qKWVlUgTQI9yv5CAXniCqlrlZbqvg"
 USE_PAPER = True
 LOG_FILE = "important-files/trade_log.csv"
 
