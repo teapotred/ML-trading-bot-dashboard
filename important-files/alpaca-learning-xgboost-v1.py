@@ -8,7 +8,7 @@ from xgboost import XGBClassifier, plot_importance
 
 # === CONFIG ===
 DATA_DIR = 'ticker-yearly'
-TICKERS = ['SOFI','RIOT','CHPT','LCID','RIVN','MARA']  # Change this manually as needed
+TICKERS = ["MARA", "SOFI", "RIOT", "LCID", "RIVN", "CHPT"]  # Change this manually as needed
 MODEL_DIR = 'xgb_models'
 os.makedirs(MODEL_DIR, exist_ok=True)  # Create folder if it doesn't exist
 

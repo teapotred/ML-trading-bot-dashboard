@@ -1,42 +1,44 @@
 from yahooquery import Ticker
 import pandas as pd
 import os
+from datetime import datetime, timedelta
 
 # === Configuration ===
-tickers = ["MARA"]
-start_date = "2010-01-01"
-end_date = "2024-12-31"
+tickers = ["MARA", "SOFI", "RIOT", "LCID", "RIVN", "CHPT"]
+end_date = datetime.now()
+start_date = end_date - timedelta(days=5479)  # approx 15 years
 output_folder = "ticker-yearly"
+
+# Format dates as strings
+start_date_str = start_date.strftime('%Y-%m-%d')
+end_date_str = end_date.strftime('%Y-%m-%d')
 
 os.makedirs(output_folder, exist_ok=True)
 
 for symbol in tickers:
     try:
-        print(f"📥 Downloading {symbol}...")
+        print(f"📥 Downloading {symbol} ({start_date_str} to {end_date_str})...")
         ticker = Ticker(symbol)
-        hist = ticker.history(start=start_date, end=end_date)
+        hist = ticker.history(start=start_date_str, end=end_date_str)
 
         if hist.empty:
             print(f"⚠️ No data for {symbol}, skipping.")
             continue
 
-        # Reset index to get 'date' column
         hist = hist.reset_index()
         hist = hist[hist['symbol'] == symbol]
 
-        # Ensure required columns exist, fill if missing
         for col in ['dividends', 'splits']:
             if col not in hist.columns:
-                hist[col] = 0.0  # or pd.NA if you want
+                hist[col] = 0.0
 
-        # Select and rename columns
         df = hist[['date', 'open', 'high', 'low', 'close', 'volume', 'dividends', 'splits']].copy()
         df.columns = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits']
 
-        # Ensure timezone is kept in ISO format
-        df['Date'] = pd.to_datetime(df['Date']).dt.tz_localize('America/New_York', ambiguous='NaT', nonexistent='shift_forward')
+        # Standardize timezone to New York
+        df['Date'] = pd.to_datetime(df['Date']).dt.tz_localize('America/New_York')
 
-        # Save CSV
+        # Save file
         output_path = os.path.join(output_folder, f"{symbol}_yearly.csv")
         df.to_csv(output_path, index=False)
         print(f"✅ Saved: {output_path}")
@@ -44,4 +46,4 @@ for symbol in tickers:
     except Exception as e:
         print(f"❌ Error with {symbol}: {e}")
 
-print("\n✅ All available tickers processed.")
+print("\n✅ All tickers processed.")
