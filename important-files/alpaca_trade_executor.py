@@ -29,7 +29,6 @@ PREDICTION_LOG = f"logs/trade_log.csv"
 
 # === INIT ===
 trading_client = TradingClient(API_KEY, API_SECRET, paper=USE_PAPER)
-os.makedirs("logs", exist_ok=True)
 prediction_records = []
 
 # === LOOP THROUGH TICKERS ===
