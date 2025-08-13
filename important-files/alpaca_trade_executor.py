@@ -24,7 +24,7 @@ MODEL_DIR = "xgb_models"
 TICKERS = ['SOFI','RIOT','CHPT','LCID','RIVN','MARA']
 STOP_LOSS_PCT = 0.02
 TAKE_PROFIT_PCT = 0.04
-ORDER_QTY = 1
+ORDER_QTY = 3
 PREDICTION_LOG = f"logs/trade_log.csv"
 
 # === INIT ===
